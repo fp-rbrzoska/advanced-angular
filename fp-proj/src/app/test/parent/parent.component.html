@@ -1,0 +1,14 @@
+<div>
+  Search: <input #searchInput>
+</div>
+<button (click)="addElement()">Add</button>
+
+
+<app-child *ngFor="let post of posts">
+  <span class="title" #postTitle>{{post.title}}</span>
+  <p>{{post.data}}</p>
+</app-child>
+
+
+
+{{ searchInput.value }}

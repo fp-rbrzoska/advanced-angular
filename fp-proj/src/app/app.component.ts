@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fp-proj';
+
+  handleClick() {
+    console.log('please log in');
+  }
 }
