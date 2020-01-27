@@ -1,3 +1,6 @@
-<ng-template appTest>
-<p >home works!</p>
-</ng-template>
+
+<p *appMyIf="showElement">home works!</p>
+<button (click)="showElement = !showElement">Toggle</button>
+
+
+
