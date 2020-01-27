@@ -5,7 +5,6 @@ import { HttpInterceptor, HttpRequest, HttpEvent, HttpHandler } from '@angular/c
 @Injectable()
 export class TestLoggerService implements Logger, HttpInterceptor {
 
-
   constructor() { }
 
   log(val: any) {
@@ -13,10 +12,10 @@ export class TestLoggerService implements Logger, HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    console.log('interceptor test logger')
     this.log(req.url);
-    return next.handle(req.clone({
+    const newReq = req.url.includes('/users') ? req.clone({
       headers: req.headers.set('Authorization', 'asdasdasdasd')
-    }));
+    }) : req;
+    return next.handle(newReq);
   }
 }

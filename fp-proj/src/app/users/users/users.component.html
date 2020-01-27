@@ -1,1 +1,5 @@
-<p>users works!</p>
+<ng-container *ngIf="users$ | async as users">
+  <app-user-item *ngFor="let user of users" [user]="user"></app-user-item>
+</ng-container>
+
+<button (click)="showAges()">Show all user ages</button>
