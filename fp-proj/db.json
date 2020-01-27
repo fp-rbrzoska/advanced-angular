@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "firstName": "Alojzy",
+      "lastName": "Alojzy",
+      "email": "alojzy@fotka.pl",
+      "age": 17
+    },
+    {
+      "id": "2",
+      "firstName": "Adam",
+      "lastName": "Kowalski",
+      "email": "adam@fotka.pl",
+      "age": 19
+    },
+    {
+      "id": "3",
+      "firstName": "Grażyna",
+      "lastName": "Goździkowa",
+      "email": "grazyna@fotka.pl",
+      "age": 67
+    },
+    {
+      "id": "4",
+      "firstName": "Halina",
+      "lastName": "Kiepska",
+      "email": "halyna@fotka.pl",
+      "age": 48
+    },
+    {
+      "id": "5",
+      "firstName": "Ferdynand",
+      "lastName": "Kiepski",
+      "email": "ferdus@fotka.pl",
+      "age": 52
+    },
+    {
+      "id": "6",
+      "firstName": "Waldemar",
+      "lastName": "Kiepski",
+      "email": "waldus@fotka.pl",
+      "age": 33
+    }
+  ],
+  "config": {
+      "userId": "5",
+      "name": "Ferdynand Kiepski",
+      "admin": true
+  },
+  "messages": []
+}
