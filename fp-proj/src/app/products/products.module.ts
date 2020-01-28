@@ -5,6 +5,7 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products/products.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductsSearchComponent } from './products-search/products-search.component';
+import { ProductsService } from './products.service';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { ProductsSearchComponent } from './products-search/products-search.compo
   imports: [
     CommonModule,
     ProductsRoutingModule
-  ]
+  ],
+  providers: [ProductsService]
 })
 export class ProductsModule { }

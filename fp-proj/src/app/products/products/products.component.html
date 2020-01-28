@@ -1,1 +1,10 @@
-<app-products-list></app-products-list>
+<app-products-list *ngIf="products$ | async as products;else loader"
+[products]="products"></app-products-list>
+<ng-template #loader>
+  <div class="d-flex justify-content-center">
+    <div class="spinner-grow" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div>Loading...</div>
+  </div>
+</ng-template>
