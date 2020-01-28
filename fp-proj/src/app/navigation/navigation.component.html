@@ -7,9 +7,14 @@
   </div>
 
   <div class="nav navbar-nav">
-      <span *ngIf="user" class="mr-2 text-white">{{user.username}}</span>
-      <button (click)="user ? logout() : login()" class="btn btn-danger">
-        {{user ? 'Logout' : 'Login' }}</button>
+    <ng-container *ngIf="user$ | async as user; else loginBtn">
+
+      <span  class="mr-2 text-white">{{user.username}}</span>
+      <button (click)="logout()" class="btn btn-danger">Logout</button>
+    </ng-container>
+    <ng-template #loginBtn>
+      <button (click)="login()" class="btn btn-danger">Login</button>
+    </ng-template>
   </div>
 
 </nav>
