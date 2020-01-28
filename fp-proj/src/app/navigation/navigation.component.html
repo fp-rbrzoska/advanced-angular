@@ -7,7 +7,9 @@
   </div>
 
   <div class="nav navbar-nav">
-      <a class="nav-item nav-link">Login</a>
+      <span *ngIf="user" class="mr-2 text-white">{{user.username}}</span>
+      <button (click)="user ? logout() : login()" class="btn btn-danger">
+        {{user ? 'Logout' : 'Login' }}</button>
   </div>
 
 </nav>

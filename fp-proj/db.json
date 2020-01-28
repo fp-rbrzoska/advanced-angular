@@ -1,10 +1,10 @@
 {
   "auth": [{
-    "login": "alojzy",
+    "id": "alojzy",
     "username": "Alojzy Ciurlok",
     "admin": true
   }, {
-    "login": "buziaczek",
+    "id": "buziaczek",
     "username": "Grażyna Januszowa",
     "admin": false
   }],
