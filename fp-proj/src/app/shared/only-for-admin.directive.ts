@@ -1,17 +1,21 @@
-import { Directive, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
+import { Directive, OnInit, TemplateRef, ViewContainerRef, OnDestroy } from '@angular/core';
 import { AuthService } from '../core/auth.service';
+import { Subscription } from 'rxjs';
 
 @Directive({
   selector: '[appOnlyForAdmin]'
 })
-export class OnlyForAdminDirective implements OnInit {
+export class OnlyForAdminDirective implements OnInit, OnDestroy {
 
-  constructor(private temp: TemplateRef<any>,
+  private subscription: Subscription;
+
+  constructor(
+    private temp: TemplateRef<any>,
     private vcr: ViewContainerRef,
     private authService: AuthService) { }
 
   ngOnInit() {
-    this.authService.user$.subscribe(user => {
+    this.subscription = this.authService.user$.subscribe(user => {
       if (user && user.admin) {
         this.vcr.createEmbeddedView(this.temp);
       } else {
@@ -19,4 +23,9 @@ export class OnlyForAdminDirective implements OnInit {
       }
     });
   }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
 }
