@@ -8,7 +8,6 @@
 
   <div class="nav navbar-nav">
     <ng-container *ngIf="user$ | async as user; else loginBtn">
-
       <span  class="mr-2 text-white">{{user.username}}</span>
       <button (click)="logout()" class="btn btn-danger">Logout</button>
     </ng-container>
