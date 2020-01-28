@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../core/auth.service';
 import { Observable } from 'rxjs';
-import { User } from '../models/user.interface';
+import { UserState } from '../models/user.interface';
 
 @Component({
   selector: 'app-navigation',
@@ -10,9 +10,10 @@ import { User } from '../models/user.interface';
 })
 export class NavigationComponent implements OnInit {
 
-  user$: Observable<User>;
+  username$: Observable<string>;
+
   constructor(private authService: AuthService) {
-    this.user$ = this.authService.user$;
+    this.username$ = this.authService.usernameState$;
    }
 
   ngOnInit() {

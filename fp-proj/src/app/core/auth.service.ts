@@ -1,25 +1,68 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {tap} from 'rxjs/operators';
+import {tap, map, distinctUntilChanged} from 'rxjs/operators';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { User } from '../models/user.interface';
+import { UserState } from '../models/user.interface';
+
 @Injectable()
 export class AuthService {
 
-  private userSubj = new BehaviorSubject<User>(null);
-  get user$() {
-    return this.userSubj.asObservable();
+  private history: UserState[] = [];
+
+  private store = new BehaviorSubject<UserState>({
+    admin: null,
+    username: null,
+    pending: false
+  });
+
+  get userState$() {
+    return this.store.asObservable();
   }
-  constructor(private http: HttpClient) { }
+
+  get isAdminState$() {
+    return this.userState$.pipe(
+      map( u => u.admin),
+      distinctUntilChanged());
+  }
+
+  get usernameState$() {
+    return this.userState$.pipe(
+      map( u => u.username),
+      distinctUntilChanged());
+  }
+
+  get pendingUserState$() {
+    return this.userState$.pipe(
+      map( u => u.pending),
+      distinctUntilChanged());
+  }
+
+  constructor(private http: HttpClient) {
+    this.store.subscribe((s) => this.history.push(s));
+  }
+
+  setState(state: Partial<UserState>) {
+    const currentState = this.store.getValue();
+    this.store.next({...currentState, ...state });
+  }
 
   login(login: string) {
-    this.http.get<User>('/api/auth/' + login).subscribe(
-      u => this.userSubj.next(u)
+    this.setState({ pending: true });
+    this.http.get<UserState>('/api/auth/' + login).subscribe(
+      u => this.setState({...u, pending: false})
     );
   }
 
   logout() {
-    this.userSubj.next(null);
+    this.setState({
+      admin: null,
+      username: null,
+      pending: false
+    });
+  }
+
+  getHistory() {
+    return this.history;
   }
 
 }

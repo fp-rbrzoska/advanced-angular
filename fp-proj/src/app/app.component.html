@@ -1,2 +1,10 @@
 <app-navigation></app-navigation>
+<div *ngIf="pendingUser$ | async"
+style="z-index:1000"
+class="d-flex justify-content-center w-100 h-100 d-block position-fixed">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
 <router-outlet></router-outlet>
+<button (click)="log()">Log history</button>

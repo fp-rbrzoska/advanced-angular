@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './core/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  pendingUser$;
+  constructor(private authService: AuthService) {
+
+    this.pendingUser$ = this.authService.pendingUserState$;
+  }
   title = 'fp-proj';
+  log() {
+    console.log(this.authService.getHistory());
+  }
 }

@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "backend": "json-server db.json",
+    "backend": "json-server db.json --delay=2000",
     "app": "concurrently \"ng serve\" \"npm run backend\""
   },
   "private": true,

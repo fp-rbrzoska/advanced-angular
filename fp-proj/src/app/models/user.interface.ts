@@ -1,5 +1,5 @@
-export interface User {
-  id: string;
+export interface UserState {
   username: string;
   admin: boolean;
+  pending: boolean;
 }

@@ -15,13 +15,8 @@ export class OnlyForAdminDirective implements OnInit, OnDestroy {
     private authService: AuthService) { }
 
   ngOnInit() {
-    this.subscription = this.authService.user$.subscribe(user => {
-      if (user && user.admin) {
-        this.vcr.createEmbeddedView(this.temp);
-      } else {
-        this.vcr.clear();
-      }
-    });
+    this.subscription = this.authService.isAdminState$.subscribe(isAdmin =>
+      isAdmin ? this.vcr.createEmbeddedView(this.temp) : this.vcr.clear());
   }
 
   ngOnDestroy() {
