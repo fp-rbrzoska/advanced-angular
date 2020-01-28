@@ -7,7 +7,7 @@ import { UserState } from '../models/user.interface';
 @Injectable()
 export class AuthService {
 
-  private history: UserState[] = [];
+  private history: {action: string, state: UserState} [] = [];
 
   private store = new BehaviorSubject<UserState>({
     admin: null,
@@ -38,18 +38,20 @@ export class AuthService {
   }
 
   constructor(private http: HttpClient) {
-    this.store.subscribe((s) => this.history.push(s));
+    this.history.push({ state: this.store.getValue(), action: 'INIT'});
   }
 
-  setState(state: Partial<UserState>) {
+  setState(state: Partial<UserState>, action: string) {
     const currentState = this.store.getValue();
-    this.store.next({...currentState, ...state });
+    const newState = {...currentState, ...state };
+    this.store.next(newState);
+    this.history.push({ state: newState, action } );
   }
 
   login(login: string) {
-    this.setState({ pending: true });
+    this.setState({ pending: true }, 'LOGIN_START');
     this.http.get<UserState>('/api/auth/' + login).subscribe(
-      u => this.setState({...u, pending: false})
+      u => this.setState({...u, pending: false}, 'LOGIN_END')
     );
   }
 
@@ -58,7 +60,7 @@ export class AuthService {
       admin: null,
       username: null,
       pending: false
-    });
+    }, 'LOGOUT');
   }
 
   getHistory() {
