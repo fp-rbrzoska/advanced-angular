@@ -1,11 +1,11 @@
 {
     "auth": [{
-        "login": "alojzy",
+        "id": "alojzy",
         "username": "Alojzy Ciurlok",
         "role": "admin",
         "token": "token-asasdodoqdid3892h8dy3hhda78sg76g6gdjfsoij"
       }, {
-        "login": "buziaczek",
+        "id": "buziaczek",
         "username": "Grażyna Januszowa",
         "role": "guest",
         "token": "token-fdekjfoejomormedqwed33d3333339kg45g-fddfg"
