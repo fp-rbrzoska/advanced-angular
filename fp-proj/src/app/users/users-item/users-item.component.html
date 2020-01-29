@@ -1,0 +1,11 @@
+<div class="list-group-item list-group-item-action flex-column align-items-start">
+  <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1">{{user.firstname}} {{user.lastname}}</h5>
+    <button (click)="showDetails = !showDetails">{{showDetails ? 'Hide': 'Show'}} Details</button>
+  </div>
+  <div *ngIf="showDetails">
+    <img [src]="user.avatar">
+    <div>City: {{user.city}}</div>
+    <div>Country: {{user.country}}</div>
+  </div>
+</div>

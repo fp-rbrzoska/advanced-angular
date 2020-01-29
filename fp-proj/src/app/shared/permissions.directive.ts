@@ -16,7 +16,6 @@ export class PermissionsDirective implements OnInit, OnDestroy {
       data => {
         this.vcr.clear();
         if (data && data.role && this.appPermissions === data.role) {
-
           this.vcr.createEmbeddedView(this.temp);
         }
       }

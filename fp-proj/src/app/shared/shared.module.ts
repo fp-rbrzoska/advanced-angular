@@ -6,7 +6,8 @@ import { PermissionsDirective } from './permissions.directive';
 @NgModule({
   declarations: [TestDirective, PermissionsDirective],
   imports: [
-    CommonModule
+    CommonModule,
+
   ],
   exports: [TestDirective, PermissionsDirective]
 })

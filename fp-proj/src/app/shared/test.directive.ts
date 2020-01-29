@@ -1,7 +1,8 @@
 import { Directive, ElementRef, ViewContainerRef, TemplateRef, OnInit, Input } from '@angular/core';
 
 @Directive({
-  selector: '[appTest]'
+  selector: '[appTest]',
+  exportAs: 'test'
 })
 export class TestDirective implements OnInit{
 
@@ -21,5 +22,9 @@ export class TestDirective implements OnInit{
    }
 
    ngOnInit() {
+   }
+
+   clear() {
+    this.vcr.clear();
    }
 }
