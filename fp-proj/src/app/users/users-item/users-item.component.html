@@ -4,7 +4,6 @@
     <button (click)="showDetails = !showDetails">{{showDetails ? 'Hide': 'Show'}} Details</button>
   </div>
   <div *ngIf="showDetails">
-    <img [src]="user.avatar">
     <div>City: {{user.city}}</div>
     <div>Country: {{user.country}}</div>
   </div>
