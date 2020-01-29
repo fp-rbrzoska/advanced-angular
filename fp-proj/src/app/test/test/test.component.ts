@@ -22,7 +22,7 @@ export class TestComponent implements OnInit, AfterViewInit{
   }
 
   changeChildren() {
-    this.children.forEach(c => c.changeChildData())
+    this.children.forEach(c => c.changeChildData());
   }
 
 }
