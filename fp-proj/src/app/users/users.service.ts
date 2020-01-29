@@ -22,6 +22,6 @@ export class UsersService {
   fetchUsers(limit = 10) {
     this.http.get<User[]>('/api/users', {
       params: { _limit: limit.toString() }
-    });
+    }).subscribe( u => this.usersSubj.next(u));
   }
 }
