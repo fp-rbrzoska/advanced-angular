@@ -1,4 +1,8 @@
-<p *appTest="showTest">test works!</p>
+
+<ng-template [appTest]="showTest" #directive="test">
+  <p >test works!</p>
+</ng-template>
+<button (click)="directive.clear()">clear</button>
 <li>6767</li>
 <ng-template *ngIf="false">
   <li>76</li>
