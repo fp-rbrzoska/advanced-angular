@@ -6,4 +6,9 @@
          <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
         <a class="nav-item nav-link" routerLink="/test" routerLinkActive="active">Test</a>
     </div>
+    <div>
+      <span class="text-white mr-2 ">{{ (authData$ | async)?.username }}</span>
+      <button (click)="login()">Login</button>
+      <button (click)="logout()">Logout</button>
+    </div>
     </nav>
