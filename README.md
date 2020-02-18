@@ -1,2 +1,2 @@
-# advanced-angular
-advanced-angular
+# angular-material
+Angular Material Training
