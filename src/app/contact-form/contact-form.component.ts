@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-contact-form',
@@ -9,7 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class ContactFormComponent {
   addressForm = this.fb.group({
     company: null,
-    firstName: [null, Validators.required],
+    firstName: [this.data.name, Validators.required],
     lastName: [null, Validators.required],
     address: [null, Validators.required],
     address2: null,
@@ -85,9 +86,11 @@ export class ContactFormComponent {
     {name: 'Wyoming', abbreviation: 'WY'}
   ];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,
+    @Inject(MAT_DIALOG_DATA) public data: { name: string },
+    public dialogRef: MatDialogRef<ContactFormComponent>) {}
 
   onSubmit() {
-    alert('Thanks!');
+    this.dialogRef.close(this.addressForm.value)
   }
 }

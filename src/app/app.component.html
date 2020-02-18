@@ -18,7 +18,11 @@
 </mat-menu>
   </div>
 </mat-toolbar>
-{{isMobile$ | async | json}}
+<button mat-raised-button (click)="open()">Open dialog</button>
+<ng-template #dialogTemp><div>Dialog content
+  <button>Close</button>
+</div></ng-template>
+
 <div class="container">
   <router-outlet></router-outlet>
 </div>

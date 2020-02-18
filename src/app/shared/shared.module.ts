@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {LayoutModule} from '@angular/cdk/layout';
@@ -24,7 +25,8 @@ import {LayoutModule} from '@angular/cdk/layout';
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
-    LayoutModule
+    LayoutModule,
+    MatDialogModule
   ],
   exports: [
     MatButtonModule,
@@ -35,7 +37,8 @@ import {LayoutModule} from '@angular/cdk/layout';
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
-    LayoutModule
+    LayoutModule,
+    MatDialogModule
   ]
 })
 export class SharedModule { }
