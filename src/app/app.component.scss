@@ -1,0 +1,13 @@
+mat-toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  > div {
+    display: flex
+  }
+}
+
+.container {
+  padding: 30px;
+}

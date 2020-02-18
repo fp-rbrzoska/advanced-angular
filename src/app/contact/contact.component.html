@@ -1,1 +1,21 @@
-<p>contact works!</p>
+<!-- <app-contact-form></app-contact-form> -->
+<form [formGroup]="contactForm" (ngSubmit)="submit()">
+  <mat-card>
+    <div class="column">
+<mat-form-field>
+      <input matInput placeholder="E-mail" formControlName="email">
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Message" formControlName="message"></textarea>
+    </mat-form-field>
+
+    <mat-select formControlName="country" placeholder="Country">
+      <mat-option value="pl">PL</mat-option>
+      <mat-option value="de">DE</mat-option>
+    </mat-select>
+    <button mat-raised-button color="warn">Send</button>
+    </div>
+
+
+  </mat-card>
+</form>
