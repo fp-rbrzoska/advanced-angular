@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {LayoutModule} from '@angular/cdk/layout';
 
 
 
@@ -23,6 +24,7 @@ import { CommonModule } from '@angular/common';
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
+    LayoutModule
   ],
   exports: [
     MatButtonModule,
@@ -33,6 +35,7 @@ import { CommonModule } from '@angular/common';
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
+    LayoutModule
   ]
 })
 export class SharedModule { }
